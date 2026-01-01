@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Happy New Year 2026 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Hind:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ background:#030310;
+ color:white;
+ font-family:'Hind',sans-serif;
+ overflow:hidden;
+ height:100vh;
+}
+
+/* background glow */
+.bg{position:fixed;inset:0;z-index:-3;filter:blur(120px)}
+.bg:nth-child(1){background:radial-gradient(circle at 20% 30%,#ff6ec7,transparent 60%)}
+.bg:nth-child(2){background:radial-gradient(circle at 80% 60%,#6a7aff,transparent 60%)}
+.bg:nth-child(3){background:radial-gradient(circle at 50% 80%,#ffd86b,transparent 60%)}
+
+/* main wrapper */
+.wrapper{
+ height:100vh;
+ max-width:900px;
+ margin:auto;
+ padding:14px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+}
+
+/* title */
+.title{
+ font-family:'Poppins';
+ font-weight:900;
+ font-size:1.4rem;
+ background:linear-gradient(135deg,#ffd700,#ffffff,#ffd700);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ animation:glitter 3s linear infinite;
+}
+@keyframes glitter{
+ 0%{filter:drop-shadow(0 0 3px #ffd700)}
+ 50%{filter:drop-shadow(0 0 14px #ffd700)}
+ 100%{filter:drop-shadow(0 0 3px #ffd700)}
+}
+
+/* year */
+.year{
+ font-family:'Poppins';
+ font-weight:900;
+ font-size:4.2rem;
+ background:linear-gradient(135deg,#ffd700,#fff,#ffd700);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+}
+
+/* message card */
+.card{
+ background:rgba(255,255,255,.08);
+ border:1px solid rgba(255,255,255,.25);
+ border-radius:18px;
+ backdrop-filter:blur(14px);
+ box-shadow:0 15px 45px rgba(0,0,0,.45);
+ height:42vh;
+ width:100%;
+ padding:12px;
+
+ /* auto scroll area */
+ overflow-y:auto;
+ scroll-behavior:smooth;
+}
+
+/* scrollbar style */
+.card::-webkit-scrollbar{width:6px}
+.card::-webkit-scrollbar-thumb{background:rgba(255,255,255,.4);border-radius:10px}
+
+/* typed text */
+#typed{
+ font-size:1.12rem;
+ line-height:1.9;
+ white-space:pre-wrap;
+}
+
+/* cursor */
+.cursor{
+ font-size:1.1rem;
+ animation:blink 1s infinite;
+}
+@keyframes blink{50%{opacity:0}}
+
+/* button */
+.reveal-btn{
+ margin-top:14px;
+ padding:10px 16px;
+ border-radius:25px;
+ border:1px solid rgba(255,255,255,.6);
+ background:rgba(255,255,255,.12);
+ color:white;
+ backdrop-filter:blur(10px);
+}
+.reveal-btn:active{transform:scale(.96)}
+
+.credit{
+ margin-top:8px;
+ font-size:.8rem;
+ opacity:.75;
+}
+
+/* 🌹 rose petals (NOW ABOVE FINAL SCREEN) */
+.petal{
+ position:fixed;
+ top:-30px;
+ font-size:24px;
+ animation:fall 9s linear forwards;
+ pointer-events:none;
+ z-index:200;   /* 🔥 ensures roses appear on final screen */
+}
+@keyframes fall{
+ 0%{transform:translateY(-50px) rotate(0deg);opacity:1}
+ 100%{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+
+/* final screen */
+.final{
+ position:fixed;
+ inset:0;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ background:rgba(0,0,0,.92);
+ opacity:0;
+ pointer-events:none;
+ z-index:150;
+}
+.final.show{animation:fadeIn .9s forwards}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.final h1{
+ font-family:'Poppins';
+ font-weight:900;
+ font-size:2.8rem;
+ background:linear-gradient(90deg,#ff3366,#ffd700,#55ffff,#ff99ff);
+ background-size:300% 300%;
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ animation:rainbow 4s linear infinite, pulse 2s ease-in-out infinite;
+ text-shadow:0 0 30px rgba(255,255,255,.7);
+}
+
+@keyframes rainbow{
+ 0%{background-position:0% 50%}
+ 50%{background-position:100% 50%}
+ 100%{background-position:0% 50%}
+}
+
+@keyframes pulse{
+ 0%{transform:scale(1)}
+ 50%{transform:scale(1.08)}
+ 100%{transform:scale(1)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div><div class="bg"></div><div class="bg"></div>
+
+<div class="wrapper">
+
+ <div class="title">✨ नव वर्ष की हार्दिक शुभकामनाएँ मुस्कान जी ✨</div>
+
+ <div class="year">2026</div>
+
+ <div class="card" id="cardBox">
+   <span id="typed"></span>
+   <span class="cursor">💗</span>
+ </div>
+
+ <button id="startBtn" class="reveal-btn">
+  💖 Tap here to reveal your surprise 💖
+ </button>
+
+ <div class="credit">made by aman with love 💓</div>
+</div>
+
+<div id="final" class="final">
+ <h1>🎉 हैप्पी न्यू ईयर मुस्कान जी 🎉</h1>
+</div>
+
+<audio id="music" loop preload="auto">
+ <source src="https://cdn.pixabay.com/download/audio/2023/02/28/audio_c6bc41a361.mp3?filename=romantic-background-piano-141572.mp3">
+</audio>
+
+<script>
+/* MESSAGE */
+const message=`
+साल बदल रहा है, पर मैं चाहता हूँ कि कुछ चीजें वैसी ही रहें—जैसे हमारी दोस्ती।
+
+आने वाला साल तुम्हारे लिए उतना ही खूबसूरत हो जितनी तुम हो। 🙂
+
+इस नए साल में तुम्हें वो सब खुशियां मिलें जिसकी तुम हकदार हो।
+
+हमेशा ऐसे ही मुस्कुराती रहना मुस्कान जी
+
+नव वर्ष की हार्दिक शुभकामनाएँ! नया साल तुम्हारे जीवन में खुशियाँ, स्वास्थ्य, शांति और सफलता लेकर आए।
+
+इस नए साल में आपकी हर मेहनत रंग लाए और हर सपना पूरा हो। आप हमेशा मुस्कुराती और सफल होती रहें।
+
+(मैं तुम्हें सफल देखना चाहता हूँ।)
+
+और इस साल (2026) में होने वाले तुम्हारे सभी आने वाले एग्जाम्स के ट ऑफ लक।
+
+दिल से सॉरी, मैंने जो भी गलत कहा, अगर हो सके तो मुझे माफ़ कर देना।
+`;
+
+const typed=document.getElementById("typed");
+const card=document.getElementById("cardBox");
+const final=document.getElementById("final");
+let i=0;
+
+/* auto scroll */
+function autoScroll(){
+ card.scrollTop=card.scrollHeight;
+}
+
+/* ⌛ slower typing now */
+function typeSlow(){
+ if(i<message.length){
+  typed.textContent+=message.charAt(i);
+  i++;
+  autoScroll();
+  setTimeout(typeSlow,100);   // 🔥 SLOW & READABLE
+ } else {
+  setTimeout(()=>{
+   final.classList.add("show");
+   megaRoses();
+  },1800);
+ }
+}
+
+/* start button */
+startBtn.onclick=()=>{
+ startBtn.style.display="none";
+ const music=document.getElementById("music");
+ music.volume=0.12;
+ music.play().catch(()=>{});
+ typeSlow();
+};
+
+/* gentle petals always */
+setInterval(()=>{
+ const p=document.createElement("div");
+ p.className="petal";
+ p.textContent="🌹";
+ p.style.left=Math.random()*100+"vw";
+ document.body.appendChild(p);
+ setTimeout(()=>p.remove(),9000);
+},2000);
+
+/* 🌹 big shower on final screen */
+function megaRoses(){
+ for(let k=0;k<90;k++){
+  setTimeout(()=>{
+   const p=document.createElement("div");
+   p.className="petal";
+   p.textContent="🌹";
+   p.style.left=Math.random()*100+"vw";
+   document.body.appendChild(p);
+   setTimeout(()=>p.remove(),9000);
+  },k*50);
+ }
+}
+</script>
+
+</body>
+</html>
